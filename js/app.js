@@ -52,39 +52,47 @@ const wordBank = ['space', 'launch', 'rocket', 'countdown', 'astronaut', 'nasa',
 const playerOne = ['Player']
 
 
-/*---------------------------- Variables (state) ----------------------------*/
- //let playerChoice
- let remainingGuesses 
- let wordToGuess
- let remainingChances 
 
+/*---------------------------- Variables (state) ----------------------------*/
+let remainingChances 
+let maxChances 
+ let letterGuess = []
 
 /*------------------------ Cached Element References ------------------------*/
-const letterEls = document.querySelectorAll('.letter-button')
+const letterEls = document.querySelectorAll('.letter-button');
+const startBtnEl = document.querySelector('#start');
 
 
 
 /*-------------------------------- Functions --------------------------------*/
-const startGame = () => {
+const startGame = (Event) => {
+
+    getRandomFromWordBank(); // randomly select word from the wordBank array
 
 }; 
 
 const getRandomFromWordBank = () => {
-
+    const wordBankIndex = Math.floor(Math.random() * wordBank.length);
+    wordToGuess = wordBank[wordBankIndex];
+ 
+    console.log(wordToGuess);
 };
 
-const guessAttempts = () => {
 
+
+const totalGuessAttempts = () => {
+    maxChances = wordBank.length + 4;
+    remainingChances = maxChances;
 
 };
 
 const playerTurn = () => {
-
-
 };
 
 const checkGuessedLetter = () => {
+if ((wordBank.includes(letterGuess))) {
 
+};
 
 };
 
@@ -100,6 +108,10 @@ const endOfGame = () => {
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+letterEls.forEach(letter => {
+    letter.addEventListener('click', startGame)
+}); 
 
+start.addEventListener('click', startGame);
 
-
+startGame();
