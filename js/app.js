@@ -48,7 +48,7 @@
 const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
     'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-const wordBank = ['space', 'launch', 'rocket', 'countdown', 'astronaut', 'nasa', 'earth', 'galaxy']
+const wordBank = ['SPACE', 'LAUNCH', 'ROCKET', 'COUNTDOWN', 'ASTRONAUT', 'NASA', 'EARTH', 'GALAXY']
 const playerOne = ['Player']
 
 
@@ -56,7 +56,8 @@ const playerOne = ['Player']
 /*---------------------------- Variables (state) ----------------------------*/
 let remainingChances 
 let maxChances 
- let letterGuess = []
+let letterGuess = []
+let wordToGuess 
 
 /*------------------------ Cached Element References ------------------------*/
 const letterEls = document.querySelectorAll('.letter-button');
@@ -65,10 +66,11 @@ const startBtnEl = document.querySelector('#start');
 
 
 /*-------------------------------- Functions --------------------------------*/
-const startGame = (Event) => {
+const startGame = (event) => {
+
 
     getRandomFromWordBank(); // randomly select word from the wordBank array
-
+    checkGuessedLetter(); // check to see it the letter is in the guessed word
 }; 
 
 const getRandomFromWordBank = () => {
@@ -89,12 +91,19 @@ const totalGuessAttempts = () => {
 const playerTurn = () => {
 };
 
-const checkGuessedLetter = () => {
-if ((wordBank.includes(letterGuess))) {
+const checkGuessedLetter = (event) => {
+    letterGuess.push (event.target.innerText)
+    console.log(wordToGuess, letterGuess)
+    
+
+if ((wordToGuess.includes(letterGuess[letter]))) {
+    console.log('Good Job')
+} else {
+    console.log("Try again")
+}
 
 };
 
-};
 
 const CheckWordIsGuessed = () => {
 
@@ -109,7 +118,7 @@ const endOfGame = () => {
 
 /*----------------------------- Event Listeners -----------------------------*/
 letterEls.forEach(letter => {
-    letter.addEventListener('click', startGame)
+    letter.addEventListener('click', checkGuessedLetter)
 }); 
 
 start.addEventListener('click', startGame);
