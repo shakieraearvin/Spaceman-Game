@@ -53,13 +53,14 @@ const playerOne = ['Player']
 
 
 /*---------------------------- Variables (state) ----------------------------*/
- let playerChoice
+ //let playerChoice
  let remainingGuesses 
  let wordToGuess
  let remainingChances 
 
 
 /*------------------------ Cached Element References ------------------------*/
+const letterEls = document.querySelectorAll('.letter-button')
 
 
 
@@ -71,6 +72,33 @@ const startGame = () => {
 const getRandomFromWordBank = () => {
 
 };
+
+const guessAttempts = () => {
+
+
+};
+
+const playerTurn = () => {
+
+
+};
+
+const checkGuessedLetter = () => {
+
+
+};
+
+const CheckWordIsGuessed = () => {
+
+
+};
+
+const endOfGame = () => {
+
+
+};
+
+
 /*----------------------------- Event Listeners -----------------------------*/
 
 
