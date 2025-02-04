@@ -63,21 +63,22 @@ let secretWord
 const letterEls = document.querySelectorAll('.letter-button');
 const startBtnEl = document.querySelector('#start');
 
-
-
 /*-------------------------------- Functions --------------------------------*/
 const startGame = (event) => {
-
-
     getSecretWord(); // randomly select word from the wordBank array
-    
+    let secretWordDisplay = [];
+    for (let i = 0; i < secretWord.length; i++) {
+        secretWordDisplay.push('_');
+        console.log(secretWordDisplay);
+    }
+   
 }; 
 
 const getSecretWord = () => {
     const wordBankIndex = Math.floor(Math.random() * wordBank.length);
-    wordToGuess = wordBank[wordBankIndex];
- 
-    console.log(wordToGuess);
+    secretWord = wordBank[wordBankIndex];
+    
+    console.log("Secret Word:", secretWord);
 };
 
 
@@ -91,9 +92,9 @@ const getSecretWord = () => {
 
 const checkGuessedLetter = (event) => {
     lettersGuessed.push (event.target.innerText)
-    console.log(wordToGuess, lettersGuessed)
+    console.log(secretWord, lettersGuessed)
     
-if ((wordToGuess.includes(lettersGuessed[lettersGuessed.length -1]))) {
+if ((secretWord.includes(lettersGuessed[lettersGuessed.length -1]))) {
     // the letter to display in the word to guess array 
     // in the correct position 
     // be removed from the lettersELs 
