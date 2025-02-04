@@ -49,15 +49,15 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
     'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 const wordBank = ['SPACE', 'LAUNCH', 'ROCKET', 'COUNTDOWN', 'ASTRONAUT', 'NASA', 'EARTH', 'GALAXY']
-const playerOne = ['Player']
+
 
 
 
 /*---------------------------- Variables (state) ----------------------------*/
 let remainingChances 
 let maxChances 
-let letterGuess = []
-let wordToGuess 
+let lettersGuessed = []
+let secretWord 
 
 /*------------------------ Cached Element References ------------------------*/
 const letterEls = document.querySelectorAll('.letter-button');
@@ -69,11 +69,11 @@ const startBtnEl = document.querySelector('#start');
 const startGame = (event) => {
 
 
-    getRandomFromWordBank(); // randomly select word from the wordBank array
-    checkGuessedLetter(); // check to see it the letter is in the guessed word
+    getSecretWord(); // randomly select word from the wordBank array
+    
 }; 
 
-const getRandomFromWordBank = () => {
+const getSecretWord = () => {
     const wordBankIndex = Math.floor(Math.random() * wordBank.length);
     wordToGuess = wordBank[wordBankIndex];
  
@@ -82,21 +82,21 @@ const getRandomFromWordBank = () => {
 
 
 
-const totalGuessAttempts = () => {
-    maxChances = wordBank.length + 4;
-    remainingChances = maxChances;
+// const totalGuessAttempts = () => {
+//     maxChances = wordBank.length + 4;
+//     remainingChances = maxChances;
 
-};
+// };
 
-const playerTurn = () => {
-};
 
 const checkGuessedLetter = (event) => {
-    letterGuess.push (event.target.innerText)
-    console.log(wordToGuess, letterGuess)
+    lettersGuessed.push (event.target.innerText)
+    console.log(wordToGuess, lettersGuessed)
     
-
-if ((wordToGuess.includes(letterGuess[letter]))) {
+if ((wordToGuess.includes(lettersGuessed[lettersGuessed.length -1]))) {
+    // the letter to display in the word to guess array 
+    // in the correct position 
+    // be removed from the lettersELs 
     console.log('Good Job')
 } else {
     console.log("Try again")
@@ -105,15 +105,7 @@ if ((wordToGuess.includes(letterGuess[letter]))) {
 };
 
 
-const CheckWordIsGuessed = () => {
 
-
-};
-
-const endOfGame = () => {
-
-
-};
 
 
 /*----------------------------- Event Listeners -----------------------------*/
