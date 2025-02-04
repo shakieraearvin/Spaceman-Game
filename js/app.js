@@ -69,9 +69,9 @@ const startGame = (event) => {
     let secretWordDisplay = [];
     for (let i = 0; i < secretWord.length; i++) {
         secretWordDisplay.push('_');
-        console.log(secretWordDisplay);
+    document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' '); 
     }
-   
+    console.log(secretWordDisplay);
 }; 
 
 const getSecretWord = () => {
@@ -95,7 +95,7 @@ const checkGuessedLetter = (event) => {
     console.log(secretWord, lettersGuessed)
     
 if ((secretWord.includes(lettersGuessed[lettersGuessed.length -1]))) {
-    // the letter to display in the word to guess array 
+        // the letter to display in the word to guess array 
     // in the correct position 
     // be removed from the lettersELs 
     console.log('Good Job')

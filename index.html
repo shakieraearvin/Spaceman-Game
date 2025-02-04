@@ -9,6 +9,12 @@
 </head>
 <body>
     <h1>🚀 Spaceman Game 🚀</h1>
+
+    <section class=" secret-word-blank">
+        <div id="secret-word-display">_ _ _ _ _ _</div>
+    </section>
+
+
     <div class="letter-bank">
         <button class="letter-button">A</button>
         <button class="letter-button">B</button>
@@ -36,14 +42,14 @@
         <button class="letter-button">X</button>
         <button class="letter-button">Y</button>
         <button class="letter-button">Z</button>
-        
     </div>
-    <section class=" Ready-start-game">
-        <button id="start" class="hidden">start</button>
-    </section>
 
-    <section class=" secret-word-blank">
-        <div id="secret-word-display">_ _ _ _ _ _</div>
+    <p> Remaining Chances: <span id="chances">6</span></p>
+    <p id="message"></p>
+
+
+    <section class="start-game">
+        <button id="start">Start Game</button>
     </section>
 
 </body>
