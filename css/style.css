@@ -31,12 +31,13 @@ margin: 50px;
     width: 50px;
     height: 50px;
     background-color: #a44322;
-    border: 4px solid black;
+   
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
 
+    
 }
 
 
@@ -88,6 +89,15 @@ p {
     font-weight: bold;
     margin-top: 20px;
     
+}
+
+#start, #play-again {
+    font-family: "New Amsterdam", serif;
+    background-color: #051427;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 .hidden {

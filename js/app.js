@@ -71,9 +71,10 @@ const startGame = (event) => {
     remainingChances = 9
     document.getElementById('chances').textContent = remainingChances;
     document.getElementById('message').textContent = '';
+    document.getElementById('play-again').classList.add('hidden');
 
-const secretWordContainer = document.getElementById('secret-word-display');
-secretWordContainer.innerHTML = '';
+    const secretWordContainer = document.getElementById('secret-word-display');
+    secretWordContainer.innerHTML = '';
 
     for (let i = 0; i < secretWord.length; i++) {
         secretWordDisplay.push('_');
@@ -116,7 +117,6 @@ const checkGuessedLetter = (event) => {
     lettersGuessed.push(guessedLetter);
 
     if ((secretWord.includes(lettersGuessed[lettersGuessed.length - 1]))) {
-        console.log('Good Job')
         for (let i = 0; i < secretWord.length; i++) {
             if (secretWord[i] === lettersGuessed[lettersGuessed.length - 1]) {
                 secretWordDisplay[i] = lettersGuessed[lettersGuessed.length - 1]
@@ -143,6 +143,10 @@ const checkGuessedLetter = (event) => {
             document.getElementById('message').textContent = `Game Over! The word was '${secretWord}'.`;
             disableAllButtons();
         }
+
+        if (!secretWordDisplay.includes('_') || remainingChances === 0) {
+            document.getElementById('play-again').classList.remove('hidden');
+        }
     }
     event.target.disabled = true;
 
@@ -164,5 +168,6 @@ letterEls.forEach(letter => {
 });
 
 start.addEventListener('click', startGame);
+document.getElementById('play-again').addEventListener('click', startGame);
 
 startGame();
