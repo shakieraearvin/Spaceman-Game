@@ -71,7 +71,8 @@ const startGame = (event) => {
     remainingChances = 9
     document.getElementById('chances').textContent = remainingChances;
     document.getElementById('message').textContent = '';
-    document.getElementById('play-again').classList.add('hidden');
+    document.getElementById('restart').classList.add('hidden');
+    document.getElementById('start').classList.remove('hidden');
 
     const secretWordContainer = document.getElementById('secret-word-display');
     secretWordContainer.innerHTML = '';
@@ -112,7 +113,7 @@ const disableAllButtons = () => {
 
 
 const checkGuessedLetter = (event) => {
-
+    document.getElementById('start').classList.add('hidden');
     let guessedLetter = event.target.innerText;
     lettersGuessed.push(guessedLetter);
 
@@ -145,7 +146,8 @@ const checkGuessedLetter = (event) => {
         }
 
         if (!secretWordDisplay.includes('_') || remainingChances === 0) {
-            document.getElementById('play-again').classList.remove('hidden');
+            document.getElementById('restart').classList.remove('hidden');
+            document.getElementById('start').classList.add('hidden');
         }
     }
     event.target.disabled = true;
@@ -168,6 +170,6 @@ letterEls.forEach(letter => {
 });
 
 start.addEventListener('click', startGame);
-document.getElementById('play-again').addEventListener('click', startGame);
+document.getElementById('restart').addEventListener('click', startGame);
 
 startGame();

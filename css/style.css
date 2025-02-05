@@ -24,14 +24,13 @@ margin: 50px;
     margin-top: 20px;
 
 }
-
 .letter-box {
     font-size: 30px;
     font-weight: bold;
     width: 50px;
     height: 50px;
     background-color: #a44322;
-   
+    padding: 5px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +90,7 @@ p {
     
 }
 
-#start, #play-again {
+#start, #restart {
     font-family: "New Amsterdam", serif;
     background-color: #051427;
     color: white;
