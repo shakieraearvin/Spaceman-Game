@@ -68,22 +68,32 @@ const startBtnEl = document.querySelector('#start');
 const startGame = (event) => {
     getSecretWord(); // randomly select word from the wordBank array
     secretWordDisplay = [];
-    remainingChances = secretWord.length + 6
+    remainingChances = 9
+    document.getElementById('chances').textContent = remainingChances;
+    document.getElementById('message').textContent = '';
+
     for (let i = 0; i < secretWord.length; i++) {
         secretWordDisplay.push('_');
-        document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
-    }
 
+    }
+    document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
+
+    letterEls.forEach(button => {
+        button.disabled = false;
+    })
 };
+
 
 const getSecretWord = () => {
     const wordBankIndex = Math.floor(Math.random() * wordBank.length);
     secretWord = wordBank[wordBankIndex];
-
-
 };
 
-
+const disableAllButtons = () => {
+    letterEls.forEach(button => {
+        button.disabled = true;
+    });
+};
 
 // const totalGuessAttempts = () => {
 //     maxChances = wordBank.length + 4;
@@ -97,7 +107,6 @@ const checkGuessedLetter = (event) => {
     let guessedLetter = event.target.innerText;
     lettersGuessed.push(guessedLetter);
 
-
     if ((secretWord.includes(lettersGuessed[lettersGuessed.length - 1]))) {
         console.log('Good Job')
         for (let i = 0; i < secretWord.length; i++) {
@@ -108,16 +117,18 @@ const checkGuessedLetter = (event) => {
         document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
         if (!secretWordDisplay.includes('_')) {
             document.getElementById('message').textContent = 'You Won 🥳'
+            disableAllButtons();
         }
     } else {
         console.log('Not quite, guess again')
-        if (typeof remainingChances === 'number') {
-            remainingChances = (remainingChances - 1);
+        if (typeof remainingChances === 'number' && remainingChances > 0) {
+            remainingChances = remainingChances - 1;
             document.getElementById('chances').textContent = remainingChances;
         }
 
         if (remainingChances === 0) {
             document.getElementById('message').textContent = `Game Over! The word was '${secretWord}'.`;
+            disableAllButtons();
         }
     }
     event.target.disabled = true;

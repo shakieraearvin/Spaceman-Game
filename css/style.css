@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+
+body {
+
+   font-family:  "New Amsterdam", serif;
+   text-align: center;
+   background-color: #051427;
+   color: #f8bc04;
+   padding: 40px;
+    
+}
+
+h1 {
+
+
+}
+
+#secret-word-display {
+
+
+}
+
+.letter-bank {
+
+
+}
+
+.letter-button {
+
+
+}
+
+.letter-button:hover {
+
+
+}
+
+#chances {
+
+
+}
+
+#message {
+
+
+}
+
+#start {
+
+
+}
+
+#start:hover {
+    background-color: ;
+
+}
+
+.hidden {
+    display: none;
+}
