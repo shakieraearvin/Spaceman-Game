@@ -72,11 +72,19 @@ const startGame = (event) => {
     document.getElementById('chances').textContent = remainingChances;
     document.getElementById('message').textContent = '';
 
+const secretWordContainer = document.getElementById('secret-word-display');
+secretWordContainer.innerHTML = '';
+
     for (let i = 0; i < secretWord.length; i++) {
         secretWordDisplay.push('_');
 
+        let letterBox = document.createElement('div');
+        letterBox.classList.add('letter-box');  //reference MDN > https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+        letterBox.textContent = '_';
+        letterBox.setAttribute('id', `letter-${i}`); // reference MDN > https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+        secretWordContainer.appendChild(letterBox); // reference MDN > https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
     }
-    document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
+    //document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
 
     letterEls.forEach(button => {
         button.disabled = false;
@@ -112,9 +120,14 @@ const checkGuessedLetter = (event) => {
         for (let i = 0; i < secretWord.length; i++) {
             if (secretWord[i] === lettersGuessed[lettersGuessed.length - 1]) {
                 secretWordDisplay[i] = lettersGuessed[lettersGuessed.length - 1]
+
+                let letterBox = document.getElementById(`letter-${i}`);
+                if (letterBox) {
+                    letterBox.textContent = guessedLetter;
+                }
             }
         }
-        document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
+        //document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
         if (!secretWordDisplay.includes('_')) {
             document.getElementById('message').textContent = 'You Won 🥳'
             disableAllButtons();
