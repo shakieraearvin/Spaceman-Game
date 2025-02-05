@@ -25,7 +25,7 @@
 
 //  Check if the letter was already guessed
 // - Create a function and if statement that checks if the letter was already guessed
-  
+
 //   Add letter to guessed list
 // - Create a function that removes a letter from the guessed word list 
 
@@ -34,7 +34,7 @@
 // - Create a list a function that checks if the letter is a letter of the guessed word 
 // - Create a if statement that display ‘ good guess ‘ if the guessed letter is correct , and display the correct letter in the guessed word
 //     - And if its wrong display “try again’ and decrease the attempts by 1 
-    
+
 //  End the game
 // - Create an end game function 
 //     - If statement to create a displays “ you won’ if the player won 
@@ -54,10 +54,11 @@ const wordBank = ['SPACE', 'LAUNCH', 'ROCKET', 'COUNTDOWN', 'ASTRONAUT', 'NASA',
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let remainingChances 
-let maxChances 
+let remainingChances
+let maxChances
 let lettersGuessed = []
-let secretWord 
+let secretWord
+let secretWordDisplay = [];
 
 /*------------------------ Cached Element References ------------------------*/
 const letterEls = document.querySelectorAll('.letter-button');
@@ -66,19 +67,19 @@ const startBtnEl = document.querySelector('#start');
 /*-------------------------------- Functions --------------------------------*/
 const startGame = (event) => {
     getSecretWord(); // randomly select word from the wordBank array
-    let secretWordDisplay = [];
+    secretWordDisplay = [];
     for (let i = 0; i < secretWord.length; i++) {
         secretWordDisplay.push('_');
-    document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' '); 
+        document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
     }
-    console.log(secretWordDisplay);
-}; 
+   
+};
 
 const getSecretWord = () => {
     const wordBankIndex = Math.floor(Math.random() * wordBank.length);
     secretWord = wordBank[wordBankIndex];
-    
-    console.log("Secret Word:", secretWord);
+
+   
 };
 
 
@@ -91,28 +92,48 @@ const getSecretWord = () => {
 
 
 const checkGuessedLetter = (event) => {
-    lettersGuessed.push (event.target.innerText)
-    console.log(secretWord, lettersGuessed)
+
+    let guessedLetter = event.target.innerText;
+    lettersGuessed.push(guessedLetter);
     
-if ((secretWord.includes(lettersGuessed[lettersGuessed.length -1]))) {
-        // the letter to display in the word to guess array 
-    // in the correct position 
-    // be removed from the lettersELs 
-    console.log('Good Job')
-} else {
-    console.log("Try again")
+
+    if ((secretWord.includes(lettersGuessed[lettersGuessed.length - 1]))) {
+        console.log('Good Job')
+        for (let i = 0; i <secretWord.length; i++) {
+            if (secretWord[i] === lettersGuessed[lettersGuessed.length -1]) {
+                secretWordDisplay[i] = lettersGuessed[lettersGuessed.length -1]
+            }
+        }
+        document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
+    if (!secretWordDisplay.includes('_')) {
+        document.getElementById('message').textContent = 'You Won 🥳'
+    } 
+} else { 
+    return 'Try again';
+    remainingChances = remainingChances - 1;
+    document.getElementById('chances').textContent = remainingChances;
+        if (remainingChances === 0) {
+            document.getElementById('message').textContent = `Game Over! The word was '${secretWord}'.`;
+        }
 }
+ event.target.disabled = true;
 
 };
+
+// the letter to display in the word to guess array 
+// in the correct position 
+// be removed from the lettersELs 
+
 
 
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+
 letterEls.forEach(letter => {
     letter.addEventListener('click', checkGuessedLetter)
-}); 
+});
 
 start.addEventListener('click', startGame);
 
