@@ -16,6 +16,7 @@ margin: 50px;
 
 }
 
+
 .secret-word-container {
     display: flex;
     justify-content: center;
@@ -36,14 +37,28 @@ margin: 50px;
 
 }
 
-.letter-bank {
+.player-view {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 400px;
-    justify-content: center;
-    margin: 20px auto;
+    align-items: left;
+  
 
 }
+.letter-bank {
+    
+    max-width: px;
+    justify-content: center;
+    margin: 20px auto;
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap
+
+}
+
+p {
+    font-size: 24px;
+    display: flex;
+    align-items: left;
+    }
 
 .letter-button {
     background-color: #a44322;
@@ -55,32 +70,22 @@ margin: 50px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.2 ease-in-out;
-
+    
 }
 
-.letter-button:hover {
 
-
-}
 
 #chances {
-
+ font-size: 24px;
+ margin-inline-start: 5px;
 
 }
 
 #message {
-
-
-}
-
-#start {
-
-
-}
-
-#start:hover {
-    background-color: ;
-
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    
 }
 
 .hidden {
