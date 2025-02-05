@@ -75,6 +75,14 @@ p {
     
 }
 
+.letter-button:hover {
+    background-color: grey;
+}
+
+.letter-button:disabled {
+    background-color: grey;
+}
+
 
 
 #chances {
