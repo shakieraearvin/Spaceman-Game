@@ -4,7 +4,7 @@ body {
 
    font-family:  "New Amsterdam", serif;
    text-align: center;
-   background-color: #051427;
+   background: linear-gradient(135deg, #0D0D0D, #051427, #27020a);
    color: #f8bc04;
    padding: 40px;
     
@@ -41,17 +41,16 @@ margin: 50px;
 
 
 .player-view {
-    display: flex;
     align-items: left;
   
 
 }
 .letter-bank {
-    
-    justify-content: center;
+  
+    justify-content: left;
     margin: 20px auto;
     display: flex;
-    align-items: center;
+    align-items: left;
     flex-wrap: wrap
 
 }
@@ -106,6 +105,9 @@ p {
     margin-top: 20px;
 }
 
+.menu-content { 
+
+}
 .hidden {
     display: none;
 }
