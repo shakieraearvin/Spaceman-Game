@@ -10,30 +10,24 @@
 <body>
     <h1>🚀 Spaceman Game 🚀</h1>
 
-    <img id="spaceman-image" src="./images/spaceman-1.png" alt="Spaceman" width="200px">
-
-    <section class=" secret-word-blank">
-        <div class='secret-word-container' id="secret-word-display"></div>
-    </section>
-
-    <section> <div id="instructions-menu" class="menu">
+    <div id="instructions-menu" class="menu">
         <div class="menu-content">
-          <h2>Instructions</h2>
-          <p>Here are the instructions for the game...</p>
-          <ol>
+          <h2>How to Play</h2>
+          <ul>
             <li>Click a letter to guess if it is in the secret word.</li>
             <li>Correct guess? The letter appears in the word.</li>
             <li>Wrong guess? The spaceman drifts further into space!</li>
             <li>You have 9 chances to guess the word before the spaceman is lost forever.</li>
             <li>Win the game by guessing all letters before you run out of chances.</li>
-            <li>If you lose, the correct word is revealed, and you can restart the game.</li>
-          </ol>
+          </ul>
           <button id="close-menu">Close</button>
         </div>
-      </div> </section>
-    
+      </div> 
 
-    <section class="player-view">
+      <div class="game-container">
+
+    <div class="letter-bank-container">
+        <h3>Pick a Letter</h3>
     <div class="letter-bank">
         <button class="letter-button">A</button>
         <button class="letter-button">B</button>
@@ -62,18 +56,19 @@
         <button class="letter-button">Y</button>
         <button class="letter-button">Z</button>
     </div>
+    </div>
 
-    <p> Remaining Chances: <span id="chances">6</span></p>
-    <p id="message"></p>
-    </section>
-
-    <section class="start-game">
+    <div class="game-content">
+        <div class='secret-word-container' id="secret-word-display"></div>
+        <p> Remaining Chances: <span id="chances">6</span></p>
+        <p id="message"></p>
         <button id="start">Start Game</button>
-    </section>
-
-    <section class="play-again">
         <button id="restart" class="hidden">Play Again?</button>
-    </section>
+</div>
 
+    <div class="spaceman-container">
+        <img id="spaceman-image" src="./images/spaceman-1.png" alt="Spaceman" width="200px">
+    </div>
+  </div>
 </body>
 </html>

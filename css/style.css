@@ -1,19 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
 
 body {
-
-   font-family:  "New Amsterdam", serif;
+   font-family:  "New Amsterdam", serif, Arial, sans-serif; 
    text-align: center;
-   background: linear-gradient(135deg, #0D0D0D, #051427, #27020a);
+   background: linear-gradient(135deg, #0D0D0D, #051427, #530f1e);
    color: #f8bc04;
    padding: 40px;
     
 }
 
-h1 {
-font-size: 75px;
-margin: 50px;
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
 
+.letter-bank-container {
+    width: 30%;
+    text-align: left;
+}
+
+.letter-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.letter-button {
+    background-color: #a44322;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border-radius:10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: none;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.letter-button:hover {
+background-color: #f8bc04;
+color: black
+}
+
+.letter-button:disabled {
+background-color: grey;
+color: lightgray;
+cursor: not-allowed;
+}
+
+.game-content {
+    width: 40;
+    text-align: center;
 }
 
 
@@ -21,93 +64,62 @@ margin: 50px;
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
-
+    margin-top: 20px auto;
 }
+
 .letter-box {
     font-size: 30px;
     font-weight: bold;
     width: 50px;
     height: 50px;
     background-color: #a44322;
-    padding: 5px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-
-    
 }
 
-
-.player-view {
-    align-items: left;
-  
-
-}
-.letter-bank {
-  
-    justify-content: left;
-    margin: 20px auto;
+.spaceman-container {
+    width: 30%;
     display: flex;
-    align-items: left;
-    flex-wrap: wrap
-
+    justify-content: center;
 }
 
-p {
-    font-size: 24px;
-    display: flex;
-    align-items: left;
-    }
+#spaceman-image {
+    width: 1000px;
+}
 
-.letter-button {
-    background-color: #a44322;
-    color: black;
-    font-size: 16px;
-    padding: 12px;
-    margin: 5px;
+.menu {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border: 2px solid #f8bc04;
     border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.2 ease-in-out;
-    
+    width: 55%;
+    margin: auto;
 }
 
-.letter-button:hover {
-    background-color: grey;
+.menu-content {
+    color: white;
+    font-size: 18px;
 }
 
-.letter-button:disabled {
-    background-color: grey;
-}
-
-
-
-#chances {
- font-size: 24px;
- margin-inline-start: 5px;
-
-}
-
-#message {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-    
+.hidden {
+    display: none;
 }
 
 #start, #restart {
     font-family: "New Amsterdam", serif;
-    background-color: #051427;
-    color: white;
+    background-color: #f8bc04;
+    color: black;
     padding: 10px 15px;
     font-size: 18px;
     margin-top: 20px;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
-.menu-content { 
-
-}
-.hidden {
-    display: none;
+#start:hover, restart:hover {
+    background-color: white;
+    color: black;
 }
