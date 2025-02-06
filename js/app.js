@@ -26,6 +26,7 @@ const startGame = () => {
     document.getElementById('message').textContent = '';
     document.getElementById('restart').classList.add('hidden');
     document.getElementById('start').classList.remove('hidden');
+   
 
     const secretWordContainer = document.getElementById('secret-word-display');
     secretWordContainer.innerHTML = '';
@@ -44,11 +45,6 @@ const startGame = () => {
     })
 };
 
-// const displayInstructions = () => {
-
-
-// };
-
 
 const getSecretWord = () => {
     const wordBankIndex = Math.floor(Math.random() * wordBank.length);
@@ -63,6 +59,7 @@ const disableAllButtons = () => {
 
 const checkGuessedLetter = (event) => {
     document.getElementById('start').classList.add('hidden');
+    document.getElementById('instructions-menu').classList.add('hidden');
     let guessedLetter = event.target.innerText;
     lettersGuessed.push(guessedLetter);
     let letterAccess = lettersGuessed[lettersGuessed.length - 1]
