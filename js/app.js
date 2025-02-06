@@ -65,7 +65,7 @@ const letterEls = document.querySelectorAll('.letter-button');
 const startBtnEl = document.querySelector('#start');
 
 /*-------------------------------- Functions --------------------------------*/
-const startGame = (event) => {
+const startGame = () => {
     getSecretWord(); // randomly select word from the wordBank array
     secretWordDisplay = [];
     remainingChances = 9
@@ -105,22 +105,17 @@ const disableAllButtons = () => {
     });
 };
 
-// const totalGuessAttempts = () => {
-//     maxChances = wordBank.length + 4;
-//     remainingChances = maxChances;
-
-// };
-
 
 const checkGuessedLetter = (event) => {
     document.getElementById('start').classList.add('hidden');
     let guessedLetter = event.target.innerText;
     lettersGuessed.push(guessedLetter);
+    let letterAccess = lettersGuessed[lettersGuessed.length - 1]
 
-    if ((secretWord.includes(lettersGuessed[lettersGuessed.length - 1]))) {
+    if ((secretWord.includes(letterAccess))) {
         for (let i = 0; i < secretWord.length; i++) {
-            if (secretWord[i] === lettersGuessed[lettersGuessed.length - 1]) {
-                secretWordDisplay[i] = lettersGuessed[lettersGuessed.length - 1]
+            if (secretWord[i] === letterAccess) {
+                secretWordDisplay[i] = letterAccess
 
                 let letterBox = document.getElementById(`letter-${i}`);
                 if (letterBox) {
@@ -128,39 +123,26 @@ const checkGuessedLetter = (event) => {
                 }
             }
         }
-        //document.getElementById('secret-word-display').textContent = secretWordDisplay.join(' ');
+    
         if (!secretWordDisplay.includes('_')) {
             document.getElementById('message').textContent = 'You Won 🥳'
+            document.getElementById('restart').classList.remove('hidden')
             disableAllButtons();
         }
-    } else {
-        console.log('Not quite, guess again')
-        if (typeof remainingChances === 'number' && remainingChances > 0) {
+        else if (remainingChances > 0) {
             remainingChances = remainingChances - 1;
             document.getElementById('chances').textContent = remainingChances;
         }
 
-        if (remainingChances === 0) {
+        else if (remainingChances === 0) {
             document.getElementById('message').textContent = `Game Over! The word was '${secretWord}'.`;
+            document.getElementById('restart').classList.remove('hidden')
             disableAllButtons();
-        }
-
-        if (!secretWordDisplay.includes('_') || remainingChances === 0) {
-            document.getElementById('restart').classList.remove('hidden');
-            document.getElementById('start').classList.add('hidden');
         }
     }
     event.target.disabled = true;
 
 };
-
-// the letter to display in the word to guess array 
-// in the correct position 
-// be removed from the lettersELs 
-
-
-
-
 
 
 /*----------------------------- Event Listeners -----------------------------*/
