@@ -4,7 +4,7 @@
  ## 🎮 Game Description
 
 *Spaceman* is a word-guessing game where players try to guess the **secret word** before they run out of chances. Each incorrect guess brings the **spaceman closer to being lost in space**. The player wins if they successfully guess all the letters before their chances run out.
-This game was inspired by **classic word puzzle games** but with a fun **space-themed twist** to make it visually engaging.
+This game was inspired by **classic word puzzle games** but with a fun **space-themed twist** to make it visually engaging. I chose this game because I've always loved word-guessing games since childhood, and recreating it brought a sense of nostalgia.
 
 ## 🚀 Getting Started
 
