@@ -25,13 +25,15 @@ h1 {
 
 .letter-bank-container {
     width: 30%;
-    text-align: left;
+    text-align: center;
 }
 
 .letter-bank {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    justify-content: center;
+    max-width: 300px;
 }
 
 .letter-button {
@@ -68,9 +70,13 @@ cursor: not-allowed;
 .secret-word-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
     margin-top: 20px auto;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow: auto;
+    max-width: 100%;
+  
 }
 
 .letter-box {
@@ -83,6 +89,8 @@ cursor: not-allowed;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    max-width: 50px;
+    
 }
 
 .spaceman-container {
@@ -131,7 +139,11 @@ cursor: not-allowed;
     color: black;
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 480px) {
+
+    h1 {
+        font-size: xx-large;
+    }
     .game-container {
         flex-direction: column;
         align-items: center;
@@ -163,6 +175,7 @@ cursor: not-allowed;
         max-width: 250px;
     }
     .menu {
-        width: 90%;
+        width: 75%;
     }
+
 }
