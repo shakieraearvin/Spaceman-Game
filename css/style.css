@@ -11,7 +11,9 @@ body {
 }
 
 h1 {
-    font-size:80px; 
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+   
 }
 
 .game-container {
@@ -52,12 +54,13 @@ h1 {
 
 .letter-button:hover {
 background-color: #f8bc04;
-color: black
+color: black;
+border: 2px solid #000000;
 }
 
 .letter-button:disabled {
-background-color: grey;
-color: lightgray;
+background-color: #777;
+color: white;
 cursor: not-allowed;
 }
 
@@ -116,7 +119,7 @@ cursor: not-allowed;
 
 .menu-content {
     color: white;
-    font-size: 18px;
+    font-size: 1.1rem;
 }
 
 .hidden {
@@ -128,7 +131,7 @@ cursor: not-allowed;
     background-color: #f8bc04;
     color: black;
     padding: 10px 15px;
-    font-size: 18px;
+    font-size: 1 rem;
     margin-top: 20px;
     border: 2px solid black;
     cursor: pointer;
