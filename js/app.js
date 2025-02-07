@@ -80,23 +80,24 @@ const checkGuessedLetter = (event) => {
             document.getElementById('message').textContent = 'You Won 🥳'
             document.getElementById('restart').classList.remove('hidden')
             disableAllButtons();
+            return;
         }
 
-        if (remainingChances === 0) {
-            document.getElementById('message').textContent = `Game Over! The word was '${secretWord}'.`;
-            document.getElementById('restart').classList.remove('hidden')
-            disableAllButtons();
-        }
     } else {
         if (remainingChances > 0) {
             remainingChances = remainingChances - 1;
-
-            if (secretWordDisplay.includes('_')) {
-                changeSpaceManImage();
-            }
             document.getElementById('chances').textContent = remainingChances;
+            changeSpaceManImage();
+            // if (secretWordDisplay.includes('_')) {
         }
     }
+
+    if (remainingChances === 0) {
+            document.getElementById('message').textContent = `Game Over! The word was '${secretWord}'.`;
+            document.getElementById('restart').classList.remove('hidden')
+            disableAllButtons();
+    }
+    
     event.target.disabled = true;
 
 };
